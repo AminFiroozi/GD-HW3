@@ -20,16 +20,19 @@ namespace ChickenShooter.Combat
 
         void OnTriggerEnter2D(Collider2D other)
         {
-            var damageable = other.GetComponent<IDamageable>();
-            if (damageable != null)
+            if (movesUp)
             {
-                damageable.TakeDamage(insta ? int.MaxValue : damage);
-                PoolManager.Instance.Despawn(gameObject);
+                var damageable = other.GetComponent<IDamageable>();
+                if (damageable != null)
+                {
+                    damageable.TakeDamage(insta ? int.MaxValue : damage);
+                    PoolManager.Instance.Despawn(gameObject);
+                }
                 return;
             }
 
             var player = other.GetComponent<ChickenShooter.Player.PlayerShip>();
-            if (player != null && !movesUp)
+            if (player != null)
             {
                 player.TakeDamage();
                 PoolManager.Instance.Despawn(gameObject);
