@@ -78,6 +78,7 @@ namespace ChickenShooter.Player
             if (dead)
             {
                 gameObject.SetActive(false);
+                GameManager.Instance?.TriggerGameOver();
             }
         }
 
