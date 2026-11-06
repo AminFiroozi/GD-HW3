@@ -53,7 +53,12 @@ namespace ChickenShooter.EditorTools
         [MenuItem("ChickenShooter/Bootstrap/Build Level UI")]
         public static void BuildLevelUi()
         {
-            var scene = EditorSceneManager.OpenScene("Assets/Scenes/Level1.unity", OpenSceneMode.Single);
+            BuildLevelUi("Assets/Scenes/Level1.unity");
+        }
+
+        public static void BuildLevelUi(string scenePath)
+        {
+            var scene = EditorSceneManager.OpenScene(scenePath, OpenSceneMode.Single);
 
             EnsureEventSystem();
             BuildHud();
