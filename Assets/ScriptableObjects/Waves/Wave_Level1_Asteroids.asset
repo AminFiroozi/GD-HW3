@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wave_Level1_Asteroids
   m_EditorClassIdentifier: Assembly-CSharp::ChickenShooter.Data.WaveDataSO
   waveType: 2
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 3373041338101392435, guid: 77740f96aedc3ba4d81bb91d05a62ea9, type: 3}
   enemyCount: 8
   enemySpeedMultiplier: 0.8
   enemyFireRateMultiplier: 1

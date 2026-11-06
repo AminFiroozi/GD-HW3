@@ -20,7 +20,9 @@ namespace ChickenShooter.EditorTools
             BuildEggPrefab();
             BuildFoodPrefab();
             BuildEnemyPrefab();
+            BuildMeteorPrefab();
             WireLevel1RoundController();
+            WireAsteroidWave();
         }
 
         [MenuItem("ChickenShooter/Bootstrap/Build Egg Prefab")]
@@ -104,6 +106,47 @@ namespace ChickenShooter.EditorTools
 
             AssetDatabase.SaveAssets();
             Debug.Log("EnemyBootstrap: food drop prefab built.");
+        }
+
+        [MenuItem("ChickenShooter/Bootstrap/Build Meteor Prefab")]
+        public static void BuildMeteorPrefab()
+        {
+            var sprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/Meteors/meteorBig.png");
+            var go = new GameObject("MeteorBig", typeof(SpriteRenderer), typeof(BoxCollider2D), typeof(Meteor));
+            go.GetComponent<SpriteRenderer>().sprite = sprite;
+
+            var col = go.GetComponent<BoxCollider2D>();
+            col.isTrigger = true;
+            if (sprite != null) col.size = sprite.bounds.size;
+
+            PrefabUtility.SaveAsPrefabAsset(go, "Assets/Prefabs/MeteorBig.prefab");
+            Object.DestroyImmediate(go);
+
+            AssetDatabase.SaveAssets();
+            Debug.Log("EnemyBootstrap: meteor prefab built.");
+        }
+
+        [MenuItem("ChickenShooter/Bootstrap/Wire Asteroid Wave")]
+        public static void WireAsteroidWave()
+        {
+            var meteorPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/MeteorBig.prefab");
+            var asteroidWave = AssetDatabase.LoadAssetAtPath<WaveDataSO>("Assets/ScriptableObjects/Waves/Wave_Level1_Asteroids.asset");
+            asteroidWave.enemyPrefab = meteorPrefab;
+            EditorUtility.SetDirty(asteroidWave);
+            AssetDatabase.SaveAssets();
+
+            var scene = EditorSceneManager.OpenScene("Assets/Scenes/Level1.unity", OpenSceneMode.Single);
+            var controllerGo = GameObject.Find("RoundController");
+            if (controllerGo != null)
+            {
+                var spawner = controllerGo.GetComponent<EnemySpawner>();
+                spawner.defaultMeteorPrefab = meteorPrefab;
+                EditorUtility.SetDirty(controllerGo);
+            }
+
+            EditorSceneManager.MarkSceneDirty(scene);
+            EditorSceneManager.SaveScene(scene);
+            Debug.Log("EnemyBootstrap: asteroid wave wired to meteor prefab.");
         }
 
         [MenuItem("ChickenShooter/Bootstrap/Wire Level1 Round Controller")]
