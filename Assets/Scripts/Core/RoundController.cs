@@ -81,6 +81,10 @@ namespace ChickenShooter.Core
                 SaveSystem.Save(GameManager.Instance.ToSaveData());
                 Invoke(nameof(LoadNextLevel), sceneTransitionDelay);
             }
+            else
+            {
+                GameManager.Instance.TriggerVictory();
+            }
         }
 
         void LoadNextLevel()

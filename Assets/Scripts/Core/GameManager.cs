@@ -27,6 +27,8 @@ namespace ChickenShooter.Core
         public event Action<int> OnSecondaryMissilesChanged;
         public event Action<float> OnFoodProgressChanged;
         public event Action<int, int> OnRoundChanged;
+        public event Action OnGameOver;
+        public event Action OnVictory;
 
         void Awake()
         {
@@ -113,6 +115,19 @@ namespace ChickenShooter.Core
             RoundIndex = 1;
             Lives = MaxLives;
             WeaponPowerLevel = MinWeaponPowerLevel;
+        }
+
+        public void TriggerGameOver()
+        {
+            RoundIndex = 1;
+            SaveSystem.Save(ToSaveData());
+            OnGameOver?.Invoke();
+        }
+
+        public void TriggerVictory()
+        {
+            SaveSystem.Delete();
+            OnVictory?.Invoke();
         }
 
         public void LoadFromSaveData(SaveData data)
