@@ -8,6 +8,7 @@ namespace ChickenShooter.Combat
     public class WeaponGiftBox : MonoBehaviour, IPoolable
     {
         public float fallSpeed = 2.5f;
+        public AudioClip pickupSound;
 
         void Update()
         {
@@ -20,6 +21,7 @@ namespace ChickenShooter.Combat
             if (player == null) return;
 
             GameManager.Instance?.RaiseWeaponPower();
+            AudioManager.Instance?.PlaySfx(pickupSound);
             PoolManager.Instance.Despawn(gameObject);
         }
 

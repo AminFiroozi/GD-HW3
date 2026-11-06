@@ -10,6 +10,7 @@ namespace ChickenShooter.Combat
         public float fallSpeed = 2.5f;
         public int scoreValue = 5;
         public float progressAmount = 0.1f;
+        public AudioClip pickupSound;
 
         void Update()
         {
@@ -23,6 +24,7 @@ namespace ChickenShooter.Combat
 
             GameManager.Instance?.AddScore(scoreValue);
             GameManager.Instance?.AddFoodProgress(progressAmount);
+            AudioManager.Instance?.PlaySfx(pickupSound);
             PoolManager.Instance.Despawn(gameObject);
         }
 

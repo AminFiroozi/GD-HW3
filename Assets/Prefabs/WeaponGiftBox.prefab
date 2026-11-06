@@ -182,6 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChickenShooter.Combat.WeaponGiftBox
   fallSpeed: 2.5
+  pickupSound: {fileID: 8300000, guid: 6cb76da0b4acae84c8f2beb6fce7e37f, type: 3}
 --- !u!114 &5845227302630217457
 MonoBehaviour:
   m_ObjectHideFlags: 0

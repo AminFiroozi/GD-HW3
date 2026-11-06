@@ -19,6 +19,8 @@ namespace ChickenShooter.Enemies
         public GameObject giftBoxPrefab;
         public float foodDropChance = 0.3f;
         public float giftBoxDropChance = 0.12f;
+        public AudioClip eggDropSound;
+        public AudioClip deathSound;
 
         public System.Action<Enemy> OnDied;
 
@@ -88,6 +90,7 @@ namespace ChickenShooter.Enemies
             var instance = PoolManager.Instance.Spawn(eggPrefab, transform.position, Quaternion.identity);
             var bullet = instance.GetComponent<Combat.Bullet>();
             if (bullet != null) bullet.movesUp = false;
+            AudioManager.Instance?.PlaySfx(eggDropSound);
         }
 
         void TickDiveCheck()
@@ -127,6 +130,7 @@ namespace ChickenShooter.Enemies
         void Die()
         {
             GameManager.Instance?.AddScore(scoreValue);
+            AudioManager.Instance?.PlaySfx(deathSound);
             MaybeDrop(foodPrefab, foodDropChance);
             MaybeDrop(giftBoxPrefab, giftBoxDropChance);
 

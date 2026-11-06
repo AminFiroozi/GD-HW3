@@ -165,3 +165,5 @@ MonoBehaviour:
   diveSpeed: 7.5
   enragedFireMultiplier: 2.5
   minionSummonInterval: 4
+  enrageSound: {fileID: 8300000, guid: 702563094be2edf4585e974cad29920e, type: 3}
+  deathSound: {fileID: 8300000, guid: 821a016f06cb17349b558c2ac0c04860, type: 3}

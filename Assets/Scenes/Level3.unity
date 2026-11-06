@@ -844,6 +844,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChickenShooter.UI.VictoryUI
   panel: {fileID: 86698975}
+  victoryMusic: {fileID: 8300000, guid: 0a25bed23accfd9469a187f0b237dc82, type: 3}
 --- !u!4 &555754257
 Transform:
   m_ObjectHideFlags: 0

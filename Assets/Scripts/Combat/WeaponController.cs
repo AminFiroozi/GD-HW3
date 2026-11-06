@@ -57,6 +57,8 @@ namespace ChickenShooter.Combat
             cooldown = weapon.fireRate;
             var origin = firePoint != null ? firePoint.position : transform.position;
 
+            AudioManager.Instance?.PlaySfx(weapon.fireSound);
+
             for (int i = 0; i < weapon.spawnOffsets.Length; i++)
             {
                 var offset = weapon.spawnOffsets[i];

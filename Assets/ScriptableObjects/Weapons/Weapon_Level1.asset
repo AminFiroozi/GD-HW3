@@ -22,3 +22,4 @@ MonoBehaviour:
   - {x: 0, y: 0}
   spreadAngles:
   - 0
+  fireSound: {fileID: 8300000, guid: 42de6dfc61c4a1445916637aa9a66aae, type: 3}
