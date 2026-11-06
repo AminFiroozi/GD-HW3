@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4723659351535329568}
   - component: {fileID: 4032398189391380819}
   - component: {fileID: 5206476111843563641}
+  - component: {fileID: 3725792392350529881}
   m_Layer: 0
   m_Name: PlayerShip
   m_TagString: Untagged
@@ -183,3 +184,21 @@ MonoBehaviour:
   speed: 7
   invincibilityDuration: 1.5
   invincibilityFlashInterval: 0.1
+--- !u!114 &3725792392350529881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945573485290758121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 290f59de33b777c4790afa7a534d5111, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChickenShooter.Combat.WeaponController
+  weaponLevels:
+  - {fileID: 11400000, guid: d54e37c4ae7eb884998e8e40e6aedc37, type: 2}
+  - {fileID: 11400000, guid: 4456e66f7d6827d4197c60a42e44824b, type: 2}
+  - {fileID: 11400000, guid: 62a696a9a349d41468a4f1173130367c, type: 2}
+  bulletPrefab: {fileID: 8490173061574426721, guid: 9fecd644e9a35434caa8720265d88970, type: 3}
+  firePoint: {fileID: 538424045795523859}
