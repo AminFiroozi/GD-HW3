@@ -52,7 +52,12 @@ namespace ChickenShooter.EditorTools
         [MenuItem("ChickenShooter/Bootstrap/Build Boss Health Bar UI")]
         public static void BuildBossHealthBarUi()
         {
-            var scene = EditorSceneManager.OpenScene("Assets/Scenes/Level1.unity", OpenSceneMode.Single);
+            BuildBossHealthBarUi("Assets/Scenes/Level1.unity");
+        }
+
+        public static void BuildBossHealthBarUi(string scenePath)
+        {
+            var scene = EditorSceneManager.OpenScene(scenePath, OpenSceneMode.Single);
 
             if (GameObject.Find("BossHealthBarCanvas") != null)
             {
@@ -67,7 +72,8 @@ namespace ChickenShooter.EditorTools
 
             var scaler = canvasGo.GetComponent<CanvasScaler>();
             scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
-            scaler.referenceResolution = new Vector2(1080, 1920);
+            scaler.referenceResolution = new Vector2(1920, 1080);
+            scaler.matchWidthOrHeight = 0.5f;
 
             var barRoot = new GameObject("BossHealthBarRoot", typeof(RectTransform));
             barRoot.transform.SetParent(canvasGo.transform, false);

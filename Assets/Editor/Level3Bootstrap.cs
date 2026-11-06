@@ -137,6 +137,7 @@ namespace ChickenShooter.EditorTools
         public static void WireScene()
         {
             UIBootstrap.BuildLevelUi("Assets/Scenes/Level3.unity");
+            BossBootstrap.BuildBossHealthBarUi("Assets/Scenes/Level3.unity");
 
             var scene = EditorSceneManager.OpenScene("Assets/Scenes/Level3.unity", OpenSceneMode.Single);
 
