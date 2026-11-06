@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6704718317510256169}
   - component: {fileID: 5578036600716584994}
   - component: {fileID: 1428158303158213525}
+  - component: {fileID: 4693065211648566580}
   m_Layer: 0
   m_Name: EnemyBasic
   m_TagString: Untagged
@@ -167,3 +168,17 @@ MonoBehaviour:
   giftBoxDropChance: 0.12
   eggDropSound: {fileID: 8300000, guid: 59fb4bd3b6c5eab4e8980bc08e7fde39, type: 3}
   deathSound: {fileID: 8300000, guid: 821a016f06cb17349b558c2ac0c04860, type: 3}
+  explosionPrefab: {fileID: 2740796486910851242, guid: 0bb5fff94c1900649b4a1d62b8069490, type: 3}
+--- !u!114 &4693065211648566580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8136271083066175673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b506147b5a42110489cdfee86079bac4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChickenShooter.VFX.DamageFlash
+  flashDuration: 0.1
