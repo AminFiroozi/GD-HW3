@@ -259,9 +259,80 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: baee16b229fbf3a4988a30e7e842ca64, type: 3}
+--- !u!4 &986282475 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 538424045795523859, guid: baee16b229fbf3a4988a30e7e842ca64, type: 3}
+  m_PrefabInstance: {fileID: 986282474}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2032114304
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2032114307}
+  - component: {fileID: 2032114306}
+  - component: {fileID: 2032114305}
+  m_Layer: 0
+  m_Name: RoundController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2032114305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032114304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cba86accd4821643ac240000e729538, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChickenShooter.Core.RoundController
+  levelData: {fileID: 11400000, guid: eec541672c4dc2345a2a3a69037e0abe, type: 2}
+  spawner: {fileID: 2032114306}
+--- !u!114 &2032114306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032114304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f68b0043e53e58542b85f574fb5a8ee9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChickenShooter.Enemies.EnemySpawner
+  defaultEnemyPrefab: {fileID: 8136271083066175673, guid: bdc5da65a17667b4c96eafb12ad0fc8f, type: 3}
+  playerTransform: {fileID: 986282475}
+  topSpawnY: 7
+  formationTopY: 3.5
+  formationRowSpacing: 1
+  columns: 5
+--- !u!4 &2032114307
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032114304}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 576277386}
   - {fileID: 986282474}
+  - {fileID: 2032114307}
