@@ -154,12 +154,21 @@ namespace ChickenShooter.EditorTools
             panel.SetActive(false);
         }
 
+        public static void BuildVictoryScreen(string scenePath)
+        {
+            var scene = EditorSceneManager.OpenScene(scenePath, OpenSceneMode.Single);
+            BuildVictoryScreen();
+            EditorSceneManager.MarkSceneDirty(scene);
+            EditorSceneManager.SaveScene(scene);
+        }
+
         static void BuildVictoryScreen()
         {
             var canvas = EnsureCanvas("VictoryCanvas");
             var panel = CreatePanel(canvas.transform, "VictoryPanel", new Color(0f, 0.2f, 0f, 0.85f));
 
-            CreateText(panel.transform, "Title", "Victory!", 48, new Vector2(0f, 20f), new Vector2(400f, 80f));
+            CreateText(panel.transform, "Title", "Victory!", 48, new Vector2(0f, 60f), new Vector2(400f, 80f));
+            var mainMenuBtn = CreateButton(panel.transform, "MainMenuButton", "Main Menu", new Vector2(0f, -60f));
 
             var controllerGo = GameObject.Find("VictoryController");
             if (controllerGo == null) controllerGo = new GameObject("VictoryController");
@@ -167,6 +176,7 @@ namespace ChickenShooter.EditorTools
             if (victory == null) victory = controllerGo.AddComponent<VictoryUI>();
 
             victory.panel = panel;
+            victory.mainMenuButton = mainMenuBtn.GetComponent<Button>();
             panel.SetActive(false);
         }
 
@@ -211,6 +221,9 @@ namespace ChickenShooter.EditorTools
 
         static GameObject CreateText(Transform parent, string name, string text, int fontSize, Vector2 anchoredPos, Vector2 size)
         {
+            var existingText = parent.Find(name);
+            if (existingText != null) return existingText.gameObject;
+
             var go = new GameObject(name, typeof(Text));
             go.transform.SetParent(parent, false);
             var rect = go.GetComponent<RectTransform>();
@@ -231,6 +244,9 @@ namespace ChickenShooter.EditorTools
 
         static GameObject CreateButton(Transform parent, string name, string label, Vector2 anchoredPos)
         {
+            var existingButton = parent.Find(name);
+            if (existingButton != null) return existingButton.gameObject;
+
             var go = new GameObject(name, typeof(Image), typeof(Button));
             go.transform.SetParent(parent, false);
             var rect = go.GetComponent<RectTransform>();
@@ -247,7 +263,8 @@ namespace ChickenShooter.EditorTools
                 image.type = Image.Type.Sliced;
             }
 
-            CreateText(go.transform, "Label", label, 26, Vector2.zero, rect.sizeDelta);
+            var labelGo = CreateText(go.transform, "Label", label, 26, Vector2.zero, rect.sizeDelta);
+            labelGo.GetComponent<Text>().color = new Color(0.1f, 0.12f, 0.2f);
 
             return go;
         }
