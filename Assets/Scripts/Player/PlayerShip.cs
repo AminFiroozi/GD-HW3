@@ -10,6 +10,7 @@ namespace ChickenShooter.Player
         public float speed = 7f;
         public float invincibilityDuration = 1.5f;
         public float invincibilityFlashInterval = 0.1f;
+        public AudioClip hitSound;
 
         PlayerControls controls;
         Vector2 moveInput;
@@ -74,6 +75,7 @@ namespace ChickenShooter.Player
 
             bool dead = GameManager.Instance != null && GameManager.Instance.LoseLife();
             invincibilityTimer = invincibilityDuration;
+            AudioManager.Instance?.PlaySfx(hitSound);
 
             if (dead)
             {

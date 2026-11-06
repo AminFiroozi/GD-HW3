@@ -6,6 +6,7 @@ namespace ChickenShooter.UI
     public class VictoryUI : MonoBehaviour
     {
         public GameObject panel;
+        public AudioClip victoryMusic;
 
         void Start()
         {
@@ -29,6 +30,7 @@ namespace ChickenShooter.UI
         {
             Time.timeScale = 0f;
             panel.SetActive(true);
+            AudioManager.Instance?.PlayMusic(victoryMusic);
         }
     }
 }

@@ -23,6 +23,8 @@ namespace ChickenShooter.Core
                 GameManager.Instance.SetRound(levelData.levelIndex, 1);
             }
 
+            AudioManager.Instance?.PlayMusic(levelData.backgroundMusic);
+
             spawner.OnWaveCleared += HandleWaveCleared;
             SpawnCurrentRound();
         }

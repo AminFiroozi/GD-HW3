@@ -11,11 +11,14 @@ namespace ChickenShooter.UI
         public Button continueButton;
         public Slider volumeSlider;
         public Button quitButton;
+        public AudioClip menuMusic;
 
         const string FirstLevelScene = "Level1";
 
         void Start()
         {
+            AudioManager.Instance?.PlayMusic(menuMusic);
+
             continueButton.interactable = SaveSystem.HasSave();
 
             newGameButton.onClick.AddListener(OnNewGame);

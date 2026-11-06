@@ -29,6 +29,8 @@ namespace ChickenShooter.Enemies
         public float diveSpeed = 5f;
         public float enragedFireMultiplier = 2f;
         public float minionSummonInterval = 6f;
+        public AudioClip enrageSound;
+        public AudioClip deathSound;
 
         public System.Action<int, int> OnHealthChanged;
         public System.Action OnBossDied;
@@ -202,12 +204,14 @@ namespace ChickenShooter.Enemies
             {
                 EnterPhase(BossPhase.Enraged);
                 minionTimer = minionSummonInterval;
+                AudioManager.Instance?.PlaySfx(enrageSound);
             }
         }
 
         void Die()
         {
             GameManager.Instance?.AddScore(scoreValue);
+            AudioManager.Instance?.PlaySfx(deathSound);
             OnBossDied?.Invoke();
             Destroy(gameObject);
         }
