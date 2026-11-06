@@ -1,5 +1,7 @@
 using UnityEngine;
 using ChickenShooter.Core;
+using ChickenShooter.Core.Pooling;
+using ChickenShooter.VFX;
 
 namespace ChickenShooter.Enemies
 {
@@ -11,6 +13,7 @@ namespace ChickenShooter.Enemies
         public float driftSidewaysSpeed = 0f;
 
         public System.Action<Meteor> OnDestroyed;
+        public GameObject explosionPrefab;
 
         int health;
 
@@ -36,9 +39,18 @@ namespace ChickenShooter.Enemies
         public void TakeDamage(int amount)
         {
             health -= amount;
+            GetComponent<DamageFlash>()?.Flash();
+
             if (health <= 0)
             {
                 GameManager.Instance?.AddScore(scoreValue);
+
+                if (explosionPrefab != null && PoolManager.Instance != null)
+                {
+                    PoolManager.Instance.Spawn(explosionPrefab, transform.position, Quaternion.identity);
+                }
+                ScreenShake.Instance?.Shake(0.1f);
+
                 OnDestroyed?.Invoke(this);
                 Destroy(gameObject);
             }
