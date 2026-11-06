@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4032398189391380819}
   - component: {fileID: 5206476111843563641}
   - component: {fileID: 3725792392350529881}
+  - component: {fileID: 4908184837449710722}
   m_Layer: 0
   m_Name: PlayerShip
   m_TagString: Untagged
@@ -184,6 +185,7 @@ MonoBehaviour:
   speed: 7
   invincibilityDuration: 1.5
   invincibilityFlashInterval: 0.1
+  hitSound: {fileID: 8300000, guid: 28b2a6d417fd8b844b04ead5d9bb885a, type: 3}
 --- !u!114 &3725792392350529881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,3 +204,17 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 62a696a9a349d41468a4f1173130367c, type: 2}
   bulletPrefab: {fileID: 8490173061574426721, guid: 9fecd644e9a35434caa8720265d88970, type: 3}
   firePoint: {fileID: 538424045795523859}
+--- !u!114 &4908184837449710722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945573485290758121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd7f4b5f39ad8c6459254dcb546dacb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChickenShooter.Combat.SecondaryMissileController
+  bossDamageFraction: 0.18
+  explosionSound: {fileID: 8300000, guid: 645398608cdc2504fa9e9f6a9bbc52b6, type: 3}

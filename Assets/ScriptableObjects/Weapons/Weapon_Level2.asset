@@ -24,3 +24,4 @@ MonoBehaviour:
   spreadAngles:
   - 0
   - 0
+  fireSound: {fileID: 8300000, guid: 83449d01c7722b8428772a827bd93186, type: 3}

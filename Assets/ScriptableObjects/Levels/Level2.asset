@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ChickenShooter.Data.LevelDataSO
   levelIndex: 2
   sceneName: Level2
-  backgroundMusic: {fileID: 0}
+  backgroundMusic: {fileID: 8300000, guid: a29c994f2656a2e46a91ec281d14feba, type: 3}
   parallaxFar: {fileID: 0}
   parallaxNear: {fileID: 0}
   rounds:

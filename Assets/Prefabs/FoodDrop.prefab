@@ -184,6 +184,7 @@ MonoBehaviour:
   fallSpeed: 2.5
   scoreValue: 5
   progressAmount: 0.1
+  pickupSound: {fileID: 8300000, guid: a8ec8cba8b23ca142a00ff60c6084ef5, type: 3}
 --- !u!114 &7691293063610361034
 MonoBehaviour:
   m_ObjectHideFlags: 0

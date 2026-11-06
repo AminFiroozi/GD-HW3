@@ -26,3 +26,4 @@ MonoBehaviour:
   - -15
   - 0
   - 15
+  fireSound: {fileID: 8300000, guid: 0de50a5798dffcd4d91abe6eaac90b51, type: 3}
