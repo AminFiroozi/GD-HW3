@@ -1,6 +1,8 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using ChickenShooter.Data;
 using ChickenShooter.Enemies;
+using ChickenShooter.UI;
 
 namespace ChickenShooter.Core
 {
@@ -8,6 +10,11 @@ namespace ChickenShooter.Core
     {
         public LevelDataSO levelData;
         public EnemySpawner spawner;
+        public Transform playerTransform;
+        public BossHealthBarUI bossHealthBar;
+        public float sceneTransitionDelay = 2f;
+
+        Boss activeBoss;
 
         void Start()
         {
@@ -35,16 +42,50 @@ namespace ChickenShooter.Core
 
         void HandleWaveCleared()
         {
-            int nextRound = (GameManager.Instance != null ? GameManager.Instance.RoundIndex : 1) + 1;
+            int currentRound = GameManager.Instance != null ? GameManager.Instance.RoundIndex : 1;
+            int nextRound = currentRound + 1;
 
-            if (nextRound > levelData.rounds.Length)
+            if (currentRound >= levelData.rounds.Length)
             {
+                SpawnBoss();
                 return;
             }
 
             GameManager.Instance.SetRound(levelData.levelIndex, nextRound);
             SaveSystem.Save(GameManager.Instance.ToSaveData());
             SpawnCurrentRound();
+        }
+
+        void SpawnBoss()
+        {
+            if (levelData.bossPrefab == null) return;
+
+            var instance = Instantiate(levelData.bossPrefab, new Vector3(0f, 8f, 0f), Quaternion.identity);
+            activeBoss = instance.GetComponent<Boss>();
+            if (activeBoss == null) return;
+
+            activeBoss.Init(playerTransform);
+            activeBoss.OnBossDied += HandleBossDefeated;
+
+            if (bossHealthBar != null)
+            {
+                bossHealthBar.Bind(activeBoss);
+            }
+        }
+
+        void HandleBossDefeated()
+        {
+            if (!string.IsNullOrEmpty(levelData.nextLevelSceneName))
+            {
+                GameManager.Instance.SetRound(levelData.levelIndex + 1, 1);
+                SaveSystem.Save(GameManager.Instance.ToSaveData());
+                Invoke(nameof(LoadNextLevel), sceneTransitionDelay);
+            }
+        }
+
+        void LoadNextLevel()
+        {
+            SceneManager.LoadScene(levelData.nextLevelSceneName);
         }
     }
 }
