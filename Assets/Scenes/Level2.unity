@@ -1282,8 +1282,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChickenShooter.UI.PauseMenuUI
   panel: {fileID: 641664544}
-  resumeButton: {fileID: 0}
-  quitToMenuButton: {fileID: 0}
+  resumeButton: {fileID: 887752442}
+  quitToMenuButton: {fileID: 266107816}
 --- !u!4 &773878965
 Transform:
   m_ObjectHideFlags: 0
@@ -2557,8 +2557,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChickenShooter.UI.GameOverUI
   panel: {fileID: 485984920}
-  retryButton: {fileID: 0}
-  quitToMenuButton: {fileID: 0}
+  retryButton: {fileID: 1199789657}
+  quitToMenuButton: {fileID: 158039888}
 --- !u!4 &1215231506
 Transform:
   m_ObjectHideFlags: 0

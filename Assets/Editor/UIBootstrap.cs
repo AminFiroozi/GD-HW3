@@ -112,6 +112,14 @@ namespace ChickenShooter.EditorTools
             hud.foodBarFill = fillImage;
         }
 
+        public static void BuildPauseMenu(string scenePath)
+        {
+            var scene = EditorSceneManager.OpenScene(scenePath, OpenSceneMode.Single);
+            BuildPauseMenu();
+            EditorSceneManager.MarkSceneDirty(scene);
+            EditorSceneManager.SaveScene(scene);
+        }
+
         static void BuildPauseMenu()
         {
             var canvas = EnsureCanvas("PauseCanvas");
@@ -131,6 +139,14 @@ namespace ChickenShooter.EditorTools
             pause.quitToMenuButton = quitBtn.GetComponent<Button>();
 
             panel.SetActive(false);
+        }
+
+        public static void BuildGameOverScreen(string scenePath)
+        {
+            var scene = EditorSceneManager.OpenScene(scenePath, OpenSceneMode.Single);
+            BuildGameOverScreen();
+            EditorSceneManager.MarkSceneDirty(scene);
+            EditorSceneManager.SaveScene(scene);
         }
 
         static void BuildGameOverScreen()
