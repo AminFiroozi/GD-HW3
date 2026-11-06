@@ -2474,7 +2474,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
-    m_MaxSize: 40
+    m_MaxSize: 48
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -2711,7 +2711,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
-    m_MaxSize: 40
+    m_MaxSize: 44
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -2957,6 +2957,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChickenShooter.Enemies.EnemySpawner
   defaultEnemyPrefab: {fileID: 8136271083066175673, guid: bdc5da65a17667b4c96eafb12ad0fc8f, type: 3}
+  defaultMeteorPrefab: {fileID: 3373041338101392435, guid: 77740f96aedc3ba4d81bb91d05a62ea9, type: 3}
   playerTransform: {fileID: 986282475}
   topSpawnY: 7
   formationTopY: 3.5
