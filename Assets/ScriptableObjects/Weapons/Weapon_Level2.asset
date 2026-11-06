@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ChickenShooter.Data.WeaponDataSO
   weaponName: Double Laser
   powerLevel: 2
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 8490173061574426721, guid: 9fecd644e9a35434caa8720265d88970, type: 3}
   damage: 1
   bulletSpeed: 13
   fireRate: 0.2
