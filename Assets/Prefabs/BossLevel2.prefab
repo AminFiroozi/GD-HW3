@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2156342023655364611}
   - component: {fileID: 1194080811785782587}
   - component: {fileID: 27283386793695127}
+  - component: {fileID: 9190421515083097692}
   m_Layer: 0
   m_Name: BossLevel2
   m_TagString: Untagged
@@ -167,3 +168,17 @@ MonoBehaviour:
   minionSummonInterval: 6
   enrageSound: {fileID: 8300000, guid: 702563094be2edf4585e974cad29920e, type: 3}
   deathSound: {fileID: 8300000, guid: 821a016f06cb17349b558c2ac0c04860, type: 3}
+  explosionPrefab: {fileID: 2740796486910851242, guid: 0bb5fff94c1900649b4a1d62b8069490, type: 3}
+--- !u!114 &9190421515083097692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497866850674149451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b506147b5a42110489cdfee86079bac4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChickenShooter.VFX.DamageFlash
+  flashDuration: 0.1

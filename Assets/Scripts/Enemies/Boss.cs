@@ -1,6 +1,7 @@
 using UnityEngine;
 using ChickenShooter.Core;
 using ChickenShooter.Core.Pooling;
+using ChickenShooter.VFX;
 
 namespace ChickenShooter.Enemies
 {
@@ -31,6 +32,7 @@ namespace ChickenShooter.Enemies
         public float minionSummonInterval = 6f;
         public AudioClip enrageSound;
         public AudioClip deathSound;
+        public GameObject explosionPrefab;
 
         public System.Action<int, int> OnHealthChanged;
         public System.Action OnBossDied;
@@ -193,6 +195,7 @@ namespace ChickenShooter.Enemies
             health -= amount;
             health = Mathf.Max(0, health);
             OnHealthChanged?.Invoke(health, maxHealth);
+            GetComponent<DamageFlash>()?.Flash();
 
             if (health <= 0)
             {
@@ -212,6 +215,13 @@ namespace ChickenShooter.Enemies
         {
             GameManager.Instance?.AddScore(scoreValue);
             AudioManager.Instance?.PlaySfx(deathSound);
+
+            if (explosionPrefab != null && PoolManager.Instance != null)
+            {
+                PoolManager.Instance.Spawn(explosionPrefab, transform.position, Quaternion.identity);
+            }
+            ScreenShake.Instance?.Shake(0.8f);
+
             OnBossDied?.Invoke();
             Destroy(gameObject);
         }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5363589847402292622}
   - component: {fileID: 5651659150421090969}
   - component: {fileID: 311966308938839269}
+  - component: {fileID: 5354260844984798984}
   m_Layer: 0
   m_Name: MeteorBig
   m_TagString: Untagged
@@ -156,3 +157,17 @@ MonoBehaviour:
   scoreValue: 5
   driftSpeed: 2
   driftSidewaysSpeed: 0
+  explosionPrefab: {fileID: 2740796486910851242, guid: 0bb5fff94c1900649b4a1d62b8069490, type: 3}
+--- !u!114 &5354260844984798984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3373041338101392435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b506147b5a42110489cdfee86079bac4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChickenShooter.VFX.DamageFlash
+  flashDuration: 0.1

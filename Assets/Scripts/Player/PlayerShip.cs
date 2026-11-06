@@ -1,6 +1,7 @@
 using UnityEngine;
 using ChickenShooter.Core;
 using ChickenShooter.Input;
+using ChickenShooter.VFX;
 
 namespace ChickenShooter.Player
 {
@@ -76,6 +77,7 @@ namespace ChickenShooter.Player
             bool dead = GameManager.Instance != null && GameManager.Instance.LoseLife();
             invincibilityTimer = invincibilityDuration;
             AudioManager.Instance?.PlaySfx(hitSound);
+            ScreenShake.Instance?.Shake(0.3f);
 
             if (dead)
             {

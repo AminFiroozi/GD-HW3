@@ -1,6 +1,7 @@
 using UnityEngine;
 using ChickenShooter.Core;
 using ChickenShooter.Core.Pooling;
+using ChickenShooter.VFX;
 
 namespace ChickenShooter.Enemies
 {
@@ -21,6 +22,7 @@ namespace ChickenShooter.Enemies
         public float giftBoxDropChance = 0.12f;
         public AudioClip eggDropSound;
         public AudioClip deathSound;
+        public GameObject explosionPrefab;
 
         public System.Action<Enemy> OnDied;
 
@@ -121,6 +123,8 @@ namespace ChickenShooter.Enemies
         public void TakeDamage(int amount)
         {
             health -= amount;
+            GetComponent<DamageFlash>()?.Flash();
+
             if (health <= 0)
             {
                 Die();
@@ -133,6 +137,12 @@ namespace ChickenShooter.Enemies
             AudioManager.Instance?.PlaySfx(deathSound);
             MaybeDrop(foodPrefab, foodDropChance);
             MaybeDrop(giftBoxPrefab, giftBoxDropChance);
+
+            if (explosionPrefab != null && PoolManager.Instance != null)
+            {
+                PoolManager.Instance.Spawn(explosionPrefab, transform.position, Quaternion.identity);
+            }
+            ScreenShake.Instance?.Shake(0.15f);
 
             OnDied?.Invoke(this);
             Destroy(gameObject);
