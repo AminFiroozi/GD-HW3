@@ -2,6 +2,7 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using ChickenShooter.Core;
+using ChickenShooter.Core.Pooling;
 using ChickenShooter.Data;
 
 namespace ChickenShooter.EditorTools
@@ -93,10 +94,17 @@ namespace ChickenShooter.EditorTools
                 EditorUtility.SetDirty(go);
             }
 
+            var existingPool = GameObject.Find("PoolManager");
+            if (existingPool == null)
+            {
+                var poolGo = new GameObject("PoolManager", typeof(PoolManager));
+                EditorUtility.SetDirty(poolGo);
+            }
+
             EditorSceneManager.MarkSceneDirty(scene);
             EditorSceneManager.SaveScene(scene);
 
-            Debug.Log("DataBootstrap: GameManager wired into MainMenu scene.");
+            Debug.Log("DataBootstrap: GameManager and PoolManager wired into MainMenu scene.");
         }
 
         static T CreateOrLoad<T>(string path) where T : ScriptableObject
