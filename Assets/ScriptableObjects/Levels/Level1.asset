@@ -23,5 +23,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e193f22396e8e9448af8441d4457d79b, type: 2}
   - {fileID: 11400000, guid: 2140553268aa91e46b2a65e44c7f679a, type: 2}
   - {fileID: 11400000, guid: e193f22396e8e9448af8441d4457d79b, type: 2}
-  bossPrefab: {fileID: 0}
+  bossPrefab: {fileID: 6778904065944357912, guid: b4c2745ff0a9a70468dade48e59aa675, type: 3}
   nextLevelSceneName: Level2
