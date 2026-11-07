@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5145996053878204240}
   - component: {fileID: 2225788017349841774}
   - component: {fileID: 2489161067817133995}
-  - component: {fileID: 5044213401159355101}
   m_Layer: 0
   m_Name: EnemyAlien
   m_TagString: Untagged
@@ -89,7 +88,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.93, y: 0.84}
+  m_Size: {x: 0.53, y: 0.84}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -133,13 +132,13 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.93, y: 0.84}
-    newSize: {x: 0.93, y: 0.84}
+    oldSize: {x: 0.53, y: 0.84}
+    newSize: {x: 0.53, y: 0.84}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.93, y: 0.84}
+  m_Size: {x: 0.53, y: 0.84}
   m_EdgeRadius: 0
 --- !u!114 &2489161067817133995
 MonoBehaviour:
@@ -166,19 +165,6 @@ MonoBehaviour:
   giftBoxPrefab: {fileID: 8600200481415982851, guid: 11a40792a1d35e349a24e5e0b446a88d, type: 3}
   foodDropChance: 0.3
   giftBoxDropChance: 0.12
-  eggDropSound: {fileID: 8300000, guid: 59fb4bd3b6c5eab4e8980bc08e7fde39, type: 3}
-  deathSound: {fileID: 8300000, guid: 821a016f06cb17349b558c2ac0c04860, type: 3}
-  explosionPrefab: {fileID: 2740796486910851242, guid: 0bb5fff94c1900649b4a1d62b8069490, type: 3}
---- !u!114 &5044213401159355101
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 682893373396466692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b506147b5a42110489cdfee86079bac4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ChickenShooter.VFX.DamageFlash
-  flashDuration: 0.1
+  eggDropSound: {fileID: 0}
+  deathSound: {fileID: 0}
+  explosionPrefab: {fileID: 0}
