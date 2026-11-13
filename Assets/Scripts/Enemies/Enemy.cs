@@ -33,6 +33,9 @@ namespace ChickenShooter.Enemies
         float eggTimer;
         float diveCheckTimer;
         Transform playerTransform;
+        Vector3 diveDirection;
+
+        const float DiveExitY = 7f;
 
         public void Init(Vector3 spawnPos, Vector3 formationPos, Transform player)
         {
@@ -103,21 +106,33 @@ namespace ChickenShooter.Enemies
                 diveCheckTimer = diveBombCheckInterval;
                 if (Random.value < diveBombChance)
                 {
-                    diving = true;
+                    StartDive();
                 }
+            }
+        }
+
+        void StartDive()
+        {
+            diving = true;
+            diveDirection = Vector3.down;
+
+            if (playerTransform != null && playerTransform.gameObject.activeInHierarchy)
+            {
+                var toPlayer = playerTransform.position - transform.position;
+                if (toPlayer.y < -0.5f) diveDirection = toPlayer.normalized;
             }
         }
 
         void DiveTowardsPlayer()
         {
-            if (playerTransform == null)
-            {
-                transform.position += Vector3.down * diveBombSpeed * Time.deltaTime;
-                return;
-            }
+            transform.position += diveDirection * diveBombSpeed * Time.deltaTime;
 
-            var direction = (playerTransform.position - transform.position).normalized;
-            transform.position += direction * diveBombSpeed * Time.deltaTime;
+            if (transform.position.y < -DiveExitY)
+            {
+                transform.position = new Vector3(formationTarget.x, DiveExitY, transform.position.z);
+                diving = false;
+                inFormation = false;
+            }
         }
 
         public void TakeDamage(int amount)
