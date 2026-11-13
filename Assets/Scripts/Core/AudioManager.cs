@@ -19,6 +19,11 @@ namespace ChickenShooter.Core
 
             Instance = this;
             DontDestroyOnLoad(gameObject);
+
+            if (FindFirstObjectByType<AudioListener>() == null)
+            {
+                gameObject.AddComponent<AudioListener>();
+            }
         }
 
         public void PlayMusic(AudioClip clip)
