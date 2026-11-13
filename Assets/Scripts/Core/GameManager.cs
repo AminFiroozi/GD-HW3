@@ -120,7 +120,10 @@ namespace ChickenShooter.Core
         public void TriggerGameOver()
         {
             RoundIndex = 1;
-            SaveSystem.Save(ToSaveData());
+            var data = ToSaveData();
+            data.lives = MaxLives;
+            data.weaponPowerLevel = MinWeaponPowerLevel;
+            SaveSystem.Save(data);
             OnGameOver?.Invoke();
         }
 
