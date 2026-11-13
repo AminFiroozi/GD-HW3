@@ -43,6 +43,7 @@ namespace ChickenShooter.Enemies
         float minionTimer;
         Vector3 diveTarget;
         bool diving;
+        bool returning;
         Transform playerTransform;
 
         public void Init(Transform player)
@@ -115,19 +116,25 @@ namespace ChickenShooter.Enemies
                     ? new Vector3(playerTransform.position.x, hoverPosition.y - 2.5f, 0f)
                     : hoverPosition + Vector3.down * 2.5f;
                 diving = true;
+                returning = false;
             }
 
-            transform.position = Vector3.MoveTowards(transform.position, diveTarget, diveSpeed * Time.deltaTime);
-
-            if (Vector3.Distance(transform.position, diveTarget) < 0.1f)
+            if (!returning)
             {
-                FireEggCluster(2);
-                transform.position = Vector3.MoveTowards(transform.position, hoverPosition, diveSpeed * Time.deltaTime);
-                if (Vector3.Distance(transform.position, hoverPosition) < 0.1f)
+                transform.position = Vector3.MoveTowards(transform.position, diveTarget, diveSpeed * Time.deltaTime);
+                if (Vector3.Distance(transform.position, diveTarget) < 0.1f)
                 {
-                    diving = false;
-                    EnterPhase(BossPhase.ClusterEggs);
+                    FireEggCluster(2);
+                    returning = true;
                 }
+                return;
+            }
+
+            transform.position = Vector3.MoveTowards(transform.position, hoverPosition, diveSpeed * Time.deltaTime);
+            if (Vector3.Distance(transform.position, hoverPosition) < 0.1f)
+            {
+                diving = false;
+                EnterPhase(BossPhase.ClusterEggs);
             }
         }
 
