@@ -13,5 +13,6 @@ namespace ChickenShooter.Data
         public float fireRate = 0.2f;
         public Vector2[] spawnOffsets = { Vector2.zero };
         public float[] spreadAngles = { 0f };
+        public AudioClip fireSound;
     }
 }
