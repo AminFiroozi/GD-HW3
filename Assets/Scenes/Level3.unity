@@ -1352,7 +1352,7 @@ MonoBehaviour:
   levelData: {fileID: 11400000, guid: e751c7beb0dc8244a9d73b76709112c8, type: 2}
   spawner: {fileID: 654048176}
   playerTransform: {fileID: 1281517210}
-  bossHealthBar: {fileID: 0}
+  bossHealthBar: {fileID: 1854026824}
   sceneTransitionDelay: 2
 --- !u!114 &654048176
 MonoBehaviour:
@@ -3055,11 +3055,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e446b436f92c1fa44a10e7082d52a60a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChickenShooter.UI.HudUI
-  roundText: {fileID: 0}
-  scoreText: {fileID: 0}
-  livesText: {fileID: 0}
-  missilesText: {fileID: 0}
-  foodBarFill: {fileID: 0}
+  roundText: {fileID: 934219382}
+  scoreText: {fileID: 3367063}
+  livesText: {fileID: 629278627}
+  missilesText: {fileID: 1549326156}
+  foodBarFill: {fileID: 8844725}
 --- !u!4 &1517289317
 Transform:
   m_ObjectHideFlags: 0

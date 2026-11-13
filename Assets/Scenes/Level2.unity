@@ -2850,11 +2850,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e446b436f92c1fa44a10e7082d52a60a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChickenShooter.UI.HudUI
-  roundText: {fileID: 0}
-  scoreText: {fileID: 0}
-  livesText: {fileID: 0}
-  missilesText: {fileID: 0}
-  foodBarFill: {fileID: 0}
+  roundText: {fileID: 1133316135}
+  scoreText: {fileID: 451400219}
+  livesText: {fileID: 1804182291}
+  missilesText: {fileID: 439597731}
+  foodBarFill: {fileID: 1155770907}
 --- !u!4 &1208427276
 Transform:
   m_ObjectHideFlags: 0
@@ -3788,7 +3788,7 @@ MonoBehaviour:
   levelData: {fileID: 11400000, guid: 40cf8b02d2d82c24c8aaf2d1b8616172, type: 2}
   spawner: {fileID: 1960917923}
   playerTransform: {fileID: 1844405118}
-  bossHealthBar: {fileID: 0}
+  bossHealthBar: {fileID: 1031898090}
   sceneTransitionDelay: 2
 --- !u!114 &1960917923
 MonoBehaviour:

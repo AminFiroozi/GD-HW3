@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace ChickenShooter.Core.Pooling
 {
@@ -19,6 +20,21 @@ namespace ChickenShooter.Core.Pooling
 
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            SceneManager.sceneLoaded += HandleSceneLoaded;
+        }
+
+        void OnDestroy()
+        {
+            if (Instance == this) SceneManager.sceneLoaded -= HandleSceneLoaded;
+        }
+
+        void HandleSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                var child = transform.GetChild(i).gameObject;
+                if (child.activeSelf) Despawn(child);
+            }
         }
 
         public GameObject Spawn(GameObject prefab, Vector3 position, Quaternion rotation)

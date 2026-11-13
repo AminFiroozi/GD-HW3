@@ -3918,7 +3918,7 @@ MonoBehaviour:
   levelData: {fileID: 11400000, guid: eec541672c4dc2345a2a3a69037e0abe, type: 2}
   spawner: {fileID: 2032114306}
   playerTransform: {fileID: 986282475}
-  bossHealthBar: {fileID: 0}
+  bossHealthBar: {fileID: 1392973179}
   sceneTransitionDelay: 2
 --- !u!114 &2032114306
 MonoBehaviour:
