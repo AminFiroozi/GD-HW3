@@ -7,21 +7,20 @@ namespace ChickenShooter.VFX
     {
         public float scrollSpeed = 1f;
 
-        SpriteRenderer spriteRenderer;
-        float textureHeight;
+        float tileHeight;
         Vector3 origin;
 
         void Awake()
         {
-            spriteRenderer = GetComponent<SpriteRenderer>();
-            textureHeight = spriteRenderer.bounds.size.y;
+            var spriteRenderer = GetComponent<SpriteRenderer>();
+            tileHeight = spriteRenderer.sprite.bounds.size.y * transform.lossyScale.y;
             origin = transform.position;
         }
 
         void Update()
         {
-            float travelled = Mathf.Repeat(Time.time * scrollSpeed, textureHeight);
-            transform.position = new Vector3(origin.x, origin.y - travelled, origin.z);
+            float travelled = Mathf.Repeat(Time.time * scrollSpeed, tileHeight);
+            transform.position = new Vector3(origin.x, origin.y + tileHeight * 0.5f - travelled, origin.z);
         }
     }
 }
